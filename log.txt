@@ -1,0 +1,69 @@
+seq num=3
+0 basenum  0
+seq num=5
+1 basenum  0
+seq num=7
+2 basenum  0
+0  7
+1  7
+2  7
+name=C:\Users\danki\Documents\mineracao de dados\descricaoSuprimentoUBSFiltrado.csv
+name=C:\Users\danki\Documents\mineracao de dados\linkage1.csv
+data type=3
+Field length
+7 56 32 
+Number of Fields for Linking:3
+Number of Fields for Identification:0
+Number of Fields for Blocking Only:0
+Number of records in file 1=37690
+8
+65
+time of reading data file 1=13.926
+init index done
+7 59 33 
+number of records in file 2=30000
+C:\Users\danki\Documents\mineracao de dados\linkage1.csv
+colpos=8
+len=7
+colpos=68
+len=59
+colpos=102
+len=33
+reading file 2 done
+init index done
+Time of blocking=0
+Time of blocking=0
+rs blocking =2
+indexing start
+Time of blocking=0.048
+rs0 blocking=2
+indexing start
+Time of blocking=0.029
+namefreq=0
+num of liniked fields=3
+fld base num=0
+u===2.65322e-005
+0.95
+m=0.95
+u=2.65322e-005
+fld base num=0
+u===0.000436713
+0.95
+m=0.95
+u=0.000436713
+fld base num=0
+u===0.000708276
+0.95
+m=0.95
+u=0.000708276
+dwgt=-2.72681
+wgt=9.54464
+dwgt=-2.72644
+wgt=6.99514
+dwgt=-2.72619
+wgt=6.55498
+computing score done!
+time of computing score=55.025
+hscoreset size=29905
+hscoreset size=29905
+finish report

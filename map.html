@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <link rel="stylesheet" href="./css/mycss.css">
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Unidades de saúde ativas da Bahia</title>
+
+</head>
+
+<body>
+    <nav id="menu-hold">
+        <form action="">
+            <label for="uf">Estado</label>
+            <select class="inputs" name="" id="uf">
+                <option value="">Selecione</option>
+            </select>
+            <!-- <label for="categoria">Item</label>
+            <select class="inputs" name="" id="categoria">
+                <option value="">Selecione</option>
+            </select>
+            <input class="inputs" type="button" id="serch-btn" value="Buscar"> -->
+        </form>
+    </nav>
+    <div id="container">
+        <div id="mapid"></div>
+    </div>
+    <div id="chart-hold">
+        <div id="piechart" style="width: 300pt; height: 300pt;"></div>
+    </div>
+
+</body>
+<script src="./js/myjs.js"></script>
+
+</html>
