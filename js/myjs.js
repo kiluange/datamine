@@ -1,4 +1,9 @@
+
 $(document).ready(function () {
+
+    $('#testeb').click(() => {
+        document.location.reload();
+    })
 
     var mymap = L.map('mapid').setView([-12.97, -56.51], 5);
 
@@ -108,10 +113,7 @@ $(document).ready(function () {
             ]);
 
             var options = {
-                title: categoria === 'dsc_estrut_fisic_ambiencia' ? 'Qualidade geral de estrutura e ambiência' :
-                categoria === 'dsc_equipamentos' ? 'Qualidade geral dos equipamentos' :
-                categoria === 'dsc_medicamentos' ? 'Abrangencia de disponibilidade de medicamentos' :
-                categoria === 'dsc_adap_defic_fisic_idosos' ? 'Qualidade de acessibilidade para pessoas idosas ou com deficiência fisica' : null,
+                title: categoria === 'dsc_estrut_fisic_ambiencia' ? 'Qualidade geral de estrutura e ambiência' : categoria === 'dsc_equipamentos' ? 'Qualidade geral dos equipamentos' : categoria === 'dsc_medicamentos' ? 'Abrangencia de disponibilidade de medicamentos' : categoria === 'dsc_adap_defic_fisic_idosos' ? 'Qualidade de acessibilidade para pessoas idosas ou com deficiência fisica' : null,
                 backgroundColor: 'transparent',
                 colors: ['blue', 'yellow', 'red']
             };
