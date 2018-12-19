@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
     var mymap = L.map('mapid').setView([-12.97, -56.51], 5);
-    var layerMarkers = undefined;
-
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -12,9 +10,9 @@ $(document).ready(function () {
     }).addTo(mymap);
 
     $.get("../estados.json").then(resp => {
-        resp.sort(function(a, b) {
+        resp.sort(function (a, b) {
             return a.Estados.localeCompare(b.Estados);
-        })   
+        })
         resp.map(e => {
             var o = new Option(e.Estados, e.Estados);
             /// jquerify the DOM object 'o' so we can use the html method
@@ -23,16 +21,16 @@ $(document).ready(function () {
         });
     });
 
-    $("#uf").change(function () {
+    $("#categoria").change(function () {
         var b = 0;
         var m = 0;
         var r = 0;
         var estado = $("#uf").val();
+        var categoria = $("#categoria").val()
         $.get("../linkage.json").then(resp => {
             var ba = resp.filter(function (resp) {
                 return resp.uf == estado;
             });
-
 
             ba.map(function (e) {
                 var good = L.icon({
@@ -53,7 +51,7 @@ $(document).ready(function () {
 
                 var markers = [];
 
-                if (e.dsc_adap_defic_fisic_idosos == 'DESEMPENHO MUITO ACIMA DA MEDIA') {
+                if (e[categoria] == 'DESEMPENHO MUITO ACIMA DA MEDIA') {
                     b += 1;
                     markers.push(L.marker([e.lat, e.long], {
                         icon: good,
@@ -65,7 +63,7 @@ $(document).ready(function () {
                         <p>CÓDIGO MUNICÍPIO: ${e.co_munic}</p>
                         <p>CÓDIGO CNES: ${e.co_cnes}</p>
                         <p>CÓDIGO IBGE: ${e.co_ibge}</p>`).openPopup());
-                } else if (e.dsc_adap_defic_fisic_idosos == 'DESEMPENHO ACIMA DA MEDIA') {
+                } else if (e[categoria] == 'DESEMPENHO ACIMA DA MEDIA') {
                     m += 1;
                     markers.push(
                         L.marker([e.lat, e.long], {
@@ -78,7 +76,7 @@ $(document).ready(function () {
                         <p>CÓDIGO MUNICÍPIO: ${e.co_munic}</p>
                         <p>CÓDIGO CNES: ${e.co_cnes}</p>
                         <p>CÓDIGO IBGE: ${e.co_ibge}</p>`).openPopup());
-                } else if (e.dsc_adap_defic_fisic_idosos == 'DESEMPENHO MEDIANO OU  UM POUCO ABAIXO DA MEDIA') {
+                } else if (e[categoria] == 'DESEMPENHO MEDIANO OU  UM POUCO ABAIXO DA MEDIA') {
                     r += 1;
                     markers.push(L.marker([e.lat, e.long], {
                         icon: bad,
@@ -110,7 +108,10 @@ $(document).ready(function () {
             ]);
 
             var options = {
-                title: 'Capacidade de atendimento para pessoas idosas e ou com deficiência física',
+                title: categoria === 'dsc_estrut_fisic_ambiencia' ? 'Qualidade geral de estrutura e ambiência' :
+                categoria === 'dsc_equipamentos' ? 'Qualidade geral dos equipamentos' :
+                categoria === 'dsc_medicamentos' ? 'Abrangencia de disponibilidade de medicamentos' :
+                categoria === 'dsc_adap_defic_fisic_idosos' ? 'Qualidade de acessibilidade para pessoas idosas ou com deficiência fisica' : null,
                 backgroundColor: 'transparent',
                 colors: ['blue', 'yellow', 'red']
             };
